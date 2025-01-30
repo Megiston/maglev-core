@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Add support for `translates(*attributes)` macro, which
-# uses JSONB to store translations of the specified attrs.
+# uses json to store translations of the specified attrs.
 module Maglev
   module Translatable
     class UnavailableLocaleError < RuntimeError; end

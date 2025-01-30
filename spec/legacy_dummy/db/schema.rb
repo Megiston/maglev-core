@@ -76,30 +76,30 @@ ActiveRecord::Schema.define(version: 20_220_612_092_235) do
     t.boolean 'visible', default: true
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.jsonb 'title_translations', default: {}
-    t.jsonb 'seo_title_translations', default: {}
-    t.jsonb 'meta_description_translations', default: {}
-    t.jsonb 'sections_translations', default: {}
+    t.json 'title_translations', default: {}
+    t.json 'seo_title_translations', default: {}
+    t.json 'meta_description_translations', default: {}
+    t.json 'sections_translations', default: {}
     t.integer 'lock_version'
-    t.jsonb 'og_title_translations', default: {}
-    t.jsonb 'og_description_translations', default: {}
-    t.jsonb 'og_image_url_translations', default: {}
+    t.json 'og_title_translations', default: {}
+    t.json 'og_description_translations', default: {}
+    t.json 'og_image_url_translations', default: {}
   end
 
   create_table 'maglev_sites', force: :cascade do |t|
     t.string 'name'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.jsonb 'navigation', default: []
-    t.jsonb 'locales', default: []
-    t.jsonb 'sections_translations', default: {}
+    t.json 'navigation', default: []
+    t.json 'locales', default: []
+    t.json 'sections_translations', default: {}
     t.integer 'lock_version'
     t.string 'siteable_type'
     t.bigint 'siteable_id'
     t.string 'handle'
     t.string 'theme_id'
     t.string 'domain'
-    t.jsonb 'style', default: []
+    t.json 'style', default: []
     t.index %w[siteable_type siteable_id], name: 'index_maglev_sites_on_siteable'
   end
 

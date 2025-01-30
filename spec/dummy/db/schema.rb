@@ -73,30 +73,30 @@ ActiveRecord::Schema[8.0].define(version: 2022_06_12_092235) do
     t.boolean "visible", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "title_translations", default: {}
-    t.jsonb "seo_title_translations", default: {}
-    t.jsonb "meta_description_translations", default: {}
-    t.jsonb "sections_translations", default: {}
+    t.json "title_translations", default: {}
+    t.json "seo_title_translations", default: {}
+    t.json "meta_description_translations", default: {}
+    t.json "sections_translations", default: {}
     t.integer "lock_version"
-    t.jsonb "og_title_translations", default: {}
-    t.jsonb "og_description_translations", default: {}
-    t.jsonb "og_image_url_translations", default: {}
+    t.json "og_title_translations", default: {}
+    t.json "og_description_translations", default: {}
+    t.json "og_image_url_translations", default: {}
   end
 
   create_table "maglev_sites", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "navigation", default: []
-    t.jsonb "locales", default: []
-    t.jsonb "sections_translations", default: {}
+    t.json "navigation", default: []
+    t.json "locales", default: []
+    t.json "sections_translations", default: {}
     t.integer "lock_version"
     t.string "siteable_type"
     t.bigint "siteable_id"
     t.string "handle"
     t.string "theme_id"
     t.string "domain"
-    t.jsonb "style", default: []
+    t.json "style", default: []
     t.index ["siteable_type", "siteable_id"], name: "index_maglev_sites_on_siteable"
   end
 

@@ -115,13 +115,13 @@ end
 #  id                    :bigint           not null, primary key
 #  domain                :string
 #  handle                :string
-#  locales               :jsonb
+#  locales               :json
 #  lock_version          :integer
 #  name                  :string
-#  navigation            :jsonb
-#  sections_translations :jsonb
+#  navigation            :json
+#  sections_translations :json
 #  siteable_type         :string
-#  style                 :jsonb
+#  style                 :json
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  siteable_id           :bigint
