@@ -2,10 +2,20 @@
 
 module Maglev
   class Site < ApplicationRecord
+
+    after_initialize :initialize_default_json, :if => :new_record?
+
+    
     ## concerns ##
     include Maglev::Site::LocalesConcern
     include Maglev::SectionsConcern
     include Maglev::Translatable
+
+
+    def initialize_default_json
+      self.sections_translations ||= {}
+      self.locales ||= []
+    end
 
     ## translations ##
     translates :sections

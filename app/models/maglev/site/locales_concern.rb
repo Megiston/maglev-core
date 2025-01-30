@@ -44,13 +44,16 @@ module Maglev::Site::LocalesConcern
   end
 
   class LocalesSerializer
+
     def self.dump(array)
-      (array || []).map(&:as_json)
+      (array || []).to_json#.map(&:as_json)
     end
 
     def self.load(array)
+      array = JSON.parse(array) if array
       (array || []).map { |attributes| Maglev::Site::Locale.new(**attributes.symbolize_keys) }
     end
+    
   end
 end
 # rubocop:enable Style/ClassAndModuleChildren

@@ -3,10 +3,25 @@
 module Maglev
   class Page < ApplicationRecord
     ## concerns ##
+
+    after_initialize :initialize_default_json, :if => :new_record?
+
+
     include Maglev::Translatable
     include Maglev::SectionsConcern
     include Maglev::Page::PathConcern
     include Maglev::Page::SearchConcern
+
+    def initialize_default_json
+    self.sections_translations ||= {}
+      self.title_translations ||= {}
+      self.seo_title_translations ||= {}
+      self.meta_description_translations ||= {}
+      self.og_title_translations ||= {}
+      self.og_description_translations ||= {}
+      self.og_image_url_translations ||= {}
+    end
+
 
     ## translations ##
     translates :title, presence: true
